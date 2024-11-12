@@ -10,5 +10,23 @@ const index = async () => {
   }
 };
 
+const create = async (formData) => {
+  try {
+    const res = await axios.post(BASE_URL, formData);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updatePet = async (formData, petId) => {
+  try {
+    const res = await axios.put(`${BASE_URL}/${petId}`, formData);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 //will place more functions in this export
-export { index };
+export { index, create, updatePet };
